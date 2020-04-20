@@ -37,7 +37,7 @@ class Grid:
 			self.cells[row][col].set(val)
 			self.update_img()
 
-			if valid(self.img, val, (row, col)) and self.solve_sudoku():
+			if possible(self.img, val, (row, col)) and self.solve_sudoku():
 				return True
 
 			self.cells[row][col].set(0)
@@ -100,7 +100,7 @@ class Grid:
 		row, col = find
 
 		for i in range(1, 10):
-			if valid(self.img, i, (row, col)):
+			if possible(self.img, i, (row, col)):
 				self.img[row][col] = i
 
 				if self.solve_sudoku():
@@ -118,7 +118,7 @@ class Grid:
 		row, col = find
 
 		for i in range(1, 10):
-			if valid(self.img, i, (row, col)):
+			if possible(self.img, i, (row, col)):
 				self.img[row][col] = i
 				self.cells[row][col].set(i)
 				self.cells[row][col].draw_change(self.win, True)

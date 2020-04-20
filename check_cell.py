@@ -7,7 +7,7 @@ def find_empty(cell):
 	return None
 
 
-def valid(cell, num, pos):
+def possible(cell, num, pos):
 	for i in range(len(cell[0])):
 		if cell[pos[0]][i] == num and pos[1] != i:
 			return False
